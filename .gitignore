@@ -1,0 +1,22 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+.env # If you use .env for local secrets
+
+# Android
+Web2App/.gradle/
+Web2App/app/build/
+Web2App/local.properties
+Web2App/.idea/
+Web2App/captures/
+Web2App/*.iml
+Web2App/gradle-wrapper/
+Web2App/gradle/
+*.jks # YOUR KEYSTORE FILE - DO NOT UPLOAD TO GITHUB!
+*.keystore # YOUR KEYSTORE FILE - DO NOT UPLOAD TO GITHUB!
+
+# Generated files
+apk-gen-server/generated_apks/
+apk-gen-server/build_temp/
+*.apk
