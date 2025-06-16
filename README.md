@@ -1,6 +1,4 @@
-This is the first thing anyone (including your client or future self) will see. Make it clear and comprehensive.
-
-# Web2App - APK WebView Builder
+# Web2App - WebView APK Builder
 
 This project provides a system to dynamically generate Android APKs that display a specified website within a WebView. It consists of two main components:
 
