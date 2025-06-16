@@ -7,6 +7,7 @@ This project provides a system to dynamically generate Android APKs that display
 1.  **Web2App - Android Client App:** A user-friendly Android application (built with Jetpack Compose) where users can input a URL and initiate the APK generation process by communicating with the server.
 2.  **apk_gen_server - Flask Server:** A Python Flask backend that receives URL requests, copies and modifies an Android WebView template project, compiles the new APK, signs it, and makes it available for download.
 
+
 ---
 
 ## 🚀 Features
@@ -15,6 +16,7 @@ This project provides a system to dynamically generate Android APKs that display
 * **Automated Android Build Process:** The server handles all the complexities of Android SDK, Gradle, and signing.
 * **User-Friendly Android Client:** Simple UI to request APKs and manage downloads.
 * **Local Development Ready:** Comprehensive instructions for setting up the entire system on your local machine (Windows with WSL, Linux, or macOS).
+
 
 ---
 
@@ -27,6 +29,7 @@ To run this project locally, you'll need the following installed on your develop
 * **Android Studio:** (For developing and testing the Android client app).
 * **Android SDK Command-line Tools:** Required for the Flask server to build Android APKs.
 * **Git:** For cloning the repository.
+
 
 ---
 
@@ -143,6 +146,7 @@ You need a unique keystore to sign the generated APKs. **Do NOT upload this file
     mkdir -p ~/keystores
     cd ~/keystores
     ```
+    
 2.  **Generate Keystore:**
     Use `keytool` (comes with JDK) to generate your keystore.
     ```bash
@@ -150,6 +154,7 @@ You need a unique keystore to sign the generated APKs. **Do NOT upload this file
     ```
       * Replace `your_keystore_password` and `your_key_password` with strong passwords.
       * Fill in the requested information (name, organization, etc.).
+    
 3.  **Set Permissions:**
     ```bash
     chmod 400 my-release-key.jks # Linux/macOS/WSL
@@ -158,26 +163,22 @@ You need a unique keystore to sign the generated APKs. **Do NOT upload this file
 #### 2.4 Prepare Flask Server Code
 
 1.  **Navigate to the server directory:**
-
     ```bash
     cd server/
     ```
 
 2.  **Create and activate a Python virtual environment:**
-
     ```bash
     python3 -m venv venv
     source venv/bin/activate # On Windows: .\venv\Scripts\activate
     ```
 
 3.  **Install Python dependencies:**
-
     ```bash
     pip install -r requirements.txt
     ```
 
 4.  **Make Gradle Wrapper Executable:**
-
     ```bash
     chmod +x webview_template/gradlew # For Linux/WSL/macOS
     ```
@@ -210,6 +211,7 @@ python app.py
 
 The server should start and display something like `* Running on http://0.0.0.0:5000`. Keep this terminal open.
 
+
 ### Step 3: Set Up and Run the Android Client App
 
 This app will connect to your local Flask server to request APKs.
@@ -226,6 +228,7 @@ This app will connect to your local Flask server to request APKs.
       * Connect an Android device or start an emulator in Android Studio.
       * Run the `android-app` on it.
 
+
 ### Step 4: Test the Entire System
 
 1.  In the running **Android client app**, enter a URL (e.g., `https://www.google.com`, `https://example.com`) into the input field.
@@ -238,6 +241,7 @@ This app will connect to your local Flask server to request APKs.
       * After download, the Android app should prompt you to install the APK (ensure you've granted "Install unknown apps" permission if prompted).
 6.  **Install and Launch:** Install the newly generated APK. Launch it and verify that it opens the specified website correctly within its WebView.
 
+
 -----
 
 ## ⚠️ Important Security Notes & Best Practices
@@ -246,6 +250,7 @@ This app will connect to your local Flask server to request APKs.
   * **Environment Variables for Secrets:** Always use environment variables for sensitive information (like keystore passwords) instead of hardcoding them in code.
   * **Input Validation:** The Flask server performs basic URL validation, but ensure any user input is thoroughly validated to prevent malicious code injection.
   * **Local Testing is Key:** Before even thinking about cloud deployment, ensure everything works perfectly on your local machine.
+
 
 -----
 
@@ -266,6 +271,7 @@ This app will connect to your local Flask server to request APKs.
       * Ensure the "Install unknown apps" permission is granted on your Android device/emulator for your client app.
       * For Android 7.0 (API 24) and above, ensure your Android client app uses `FileProvider` correctly for APK installation.
       * Check the `webview_template/app/build.gradle` file for correct build settings.
+
 
 -----
 
